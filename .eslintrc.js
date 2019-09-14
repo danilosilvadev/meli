@@ -28,6 +28,7 @@ module.exports = {
     "indent": ["error", 2, {
       "SwitchCase": 1
     }],
+    "react/display-name": 'off',
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],

@@ -1,17 +1,17 @@
 import randomString from './randomString'
-import { getPathAtPos, getPathLength } from './getPath'
-import { clearString } from './clearString'
-import { CONST_FORM, CONST_DISPATCH } from './constants'
+import getPath from './path'
+import {
+  clearString
+} from './clearString'
 import pagination from './pagination'
 import load from './load'
+import formatCurrency from './currency'
 
 export {
   randomString,
-  getPathAtPos,
-  getPathLength,
+  getPath,
   clearString,
-  CONST_FORM,
-  CONST_DISPATCH,
   pagination,
   load,
+  formatCurrency
 }
