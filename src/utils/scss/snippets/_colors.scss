@@ -75,6 +75,14 @@
       background-color: black !important;
     }
 
+    &-grey {
+      background-color: rgb(192, 192, 192) !important;
+    }
+
+    &-main-background {
+      background-color: $c-main-background !important;
+    }
+
     &-main {
       background-color: $c-main !important;
     }

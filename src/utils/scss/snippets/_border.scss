@@ -2,6 +2,10 @@
 
 // borders 1px solid
 .border {
+  &-none {
+    border: none !important;
+  }
+
   &-white {
     border: 1px solid white !important;
     border-radius: 2px !important;
