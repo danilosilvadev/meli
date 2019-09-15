@@ -12,7 +12,7 @@ export default function (term) {
       data: res.data.results.map(item => ({
         id: item.id,
         image: item.thumbnail,
-        price: formatCurrency(item.price),
+        price: formatCurrency(item.price, item.currency_id),
         name: item.title,
         city: item.address.city_name
       }))

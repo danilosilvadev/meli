@@ -1,6 +1,6 @@
-export default function (value) {
+export default function (value, currencyID) {
   return new Intl.NumberFormat('pt', {
     style: 'currency',
-    currency: 'BRL'
+    currency: currencyID
   }).format(value)
 }

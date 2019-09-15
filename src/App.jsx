@@ -5,7 +5,7 @@ import { SearchPage, ProductPage, EmptySearchPage } from './pages'
 import { reducer, Context, initialState } from './store'
 import './utils/scss/index.scss'
 
-export default function () {
+export default function() {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
@@ -13,10 +13,10 @@ export default function () {
       <Router>
         <Search />
         <Switch>
-          <Route exact path='/' render={() => <div>Página inicial</div>} />
-          <Route exact path='/items' component={SearchPage} />
-          <Route exact path='/empty_search' component={EmptySearchPage} />
-          <Route path={`/items/${state.productID}`} component={ProductPage} />
+          <Route exact path="/" render={() => <div>Página inicial</div>} />
+          <Route exact path="/items" component={SearchPage} />
+          <Route exact path="/empty_search" component={EmptySearchPage} />
+          <Route path="/items/:id" component={ProductPage} />
           <Route render={() => <div>Essa rota não existe</div>} />
         </Switch>
       </Router>

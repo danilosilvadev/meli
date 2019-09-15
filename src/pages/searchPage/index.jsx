@@ -4,7 +4,7 @@ import { dispatchSearchResults } from '../../middlewares'
 import { getPath } from '../../utils'
 import { withRouter } from 'react-router-dom'
 
-function SearchPage ({ history }) {
+function SearchPage({ history }) {
   const [productList, setProductList] = useState([])
   useEffect(() => {
     dispatchSearchResults(getPath.searchParam()).then(res => {
@@ -22,7 +22,7 @@ function SearchPage ({ history }) {
           }}
           style={{ border: '1px solid black' }}
         >
-          <img src={item.image} />
+          <img src={item.image} alt="product" />
           <aside>
             {item.name}
             {item.price}
