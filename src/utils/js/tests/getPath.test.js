@@ -1,4 +1,4 @@
-import { getPathAtPos, getPathLength } from '..'
+import getPath from "../path";
 
 describe('Location manipulation behavior tests', () => {
   beforeEach(() => {
@@ -11,10 +11,10 @@ describe('Location manipulation behavior tests', () => {
     })
   })
   it('should get path length', () => {
-    expect(getPathLength()).toBe(3)
+    expect(getPath.length()).toBe(3)
   })
 
   it('should get item at url at certain position', () => {
-    expect(getPathAtPos(2)).toBe('dashboard')
+    expect(getPath.atPosition(2)).toBe('dashboard')
   })
 })

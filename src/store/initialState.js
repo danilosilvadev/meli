@@ -1,6 +1,8 @@
 const initialState = {
   productID: '',
-  searchTer: ''
+  searchResults: [],
+  productDetails: {},
+  activeSearchPage: 1
 }
 
 export default initialState

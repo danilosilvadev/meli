@@ -1,17 +1,27 @@
 import React from 'react'
 import actionType from './actionTypes'
 
-const reducer = (state, action) => {
-  switch (action.type) {
+const reducer = (state, payload) => {
+  switch (payload.type) {
     case actionType.SET_PRODUCT_ID:
       return {
         ...state,
-        productID: state.productID
+        productID: payload.productID
       }
-    case actionType.SET_SEARCH_TERM:
+    case actionType.DISPATCH_SEARCH_RESULTS:
       return {
         ...state,
-        searchTerm: state.searchTerm
+        searchResults: payload.searchResults
+      }
+    case actionType.DISPATCH_PRODUCT_DETAILS:
+      return {
+        ...state,
+        productDetails: payload.productDetails
+      }
+    case actionType.SET_ACTIVE_SEARCH_PAGE:
+      return {
+        ...state,
+        activeSearchPage: payload.activeSearchPage
       }
     default:
       return state

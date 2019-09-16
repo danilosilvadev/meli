@@ -1,13 +1,13 @@
 // Implementation in ES6
-export default function pagination(c, m) {
-  var current = c
-  var last = m
-  var delta = 2
-  var left = current - delta
-  var right = current + delta + 1
-  var range = []
-  var rangeWithDots = []
-  var l
+export default function pagination (c, m) {
+  let current = c
+  let last = m
+  let delta = 2
+  let left = current - delta
+  let right = current + delta + 1
+  let range = []
+  let rangeWithDots = []
+  let l
 
   for (let i = 1; i <= last; i++) {
     if (i === 1 || i === last || (i >= left && i < right)) {

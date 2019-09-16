@@ -1,7 +1,11 @@
 import Search from './search'
-import ProductView from './productView'
+import {
+  MobilePagination,
+  DesktopPagination
+} from './Pagination'
 
 export {
   Search,
-  ProductView
+  MobilePagination,
+  DesktopPagination
 }

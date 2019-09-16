@@ -4,7 +4,6 @@ import {
   clearString
 } from './clearString'
 import pagination from './pagination'
-import load from './load'
 import formatCurrency from './currency'
 
 export {
@@ -12,6 +11,5 @@ export {
   getPath,
   clearString,
   pagination,
-  load,
   formatCurrency
 }

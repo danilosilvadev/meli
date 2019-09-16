@@ -1,11 +1,13 @@
 import React, { useReducer } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Search } from './components'
-import { SearchPage, ProductPage, EmptySearchPage } from './pages'
+import { SearchPage, ProductPage, HomePage } from './pages'
 import { reducer, Context, initialState } from './store'
 import './utils/scss/index.scss'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
-export default function() {
+export default function () {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
@@ -13,11 +15,10 @@ export default function() {
       <Router>
         <Search />
         <Switch>
-          <Route exact path="/" render={() => <div>Página inicial</div>} />
-          <Route exact path="/items" component={SearchPage} />
-          <Route exact path="/empty_search" component={EmptySearchPage} />
-          <Route path="/items/:id" component={ProductPage} />
-          <Route render={() => <div>Essa rota não existe</div>} />
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/items' component={SearchPage} />
+          <Route path='/items/:id' component={ProductPage} />
+          <Route render={() => <div>404</div>} />
         </Switch>
       </Router>
     </Context.Provider>

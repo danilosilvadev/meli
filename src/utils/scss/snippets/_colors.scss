@@ -11,11 +11,15 @@
   }
 
   &-yellow {
-    color: #ff8c00 !important;
+    color: #daa520 !important;
   }
 
   &-white {
     color: white !important;
+  }
+
+  &-orange {
+    color: #dc7b1c !important;
   }
 
   &-black {
@@ -76,7 +80,23 @@
     }
 
     &-grey {
-      background-color: rgb(192, 192, 192) !important;
+      background-color: #f3f6f8 !important;
+
+      &-darker {
+        background-color: rgb(192, 192, 192) !important;
+      }
+
+      &-darker-2 {
+        background-color: rgb(145, 145, 145) !important;
+      }
+
+      &-darker-3 {
+        background-color: rgb(99, 99, 99) !important;
+      }
+
+      &-darker-4 {
+        background-color: rgb(45, 45, 45) !important;
+      }
     }
 
     &-blue {
