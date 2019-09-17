@@ -11,7 +11,8 @@ const reducer = (state, payload) => {
     case actionType.DISPATCH_SEARCH_RESULTS:
       return {
         ...state,
-        searchResults: payload.searchResults
+        searchResults: payload.searchResults,
+        searchTerm: payload.searchTerm
       }
     case actionType.DISPATCH_PRODUCT_DETAILS:
       return {

@@ -6,35 +6,24 @@ import { dispatchSearchResults } from '../../middlewares'
 import { getPath } from '../../utils'
 import { Context, actionTypes, hooks } from '../../store'
 
-function SearchPage({ history, location }) {
+function SearchPage ({ history, location }) {
   const [activePage, setActivePage] = useState(1)
-  const { error, pending } = hooks()
+  const initialHook = hooks()
 
   const {
-    state: { searchResults },
-    dispatch,
+    state: { searchResults, searchTerm },
+    dispatch
   } = useContext(Context)
 
   useEffect(() => {
-    dispatchSearchResults(getPath.searchParam()).then(res => {
-      if (!res.status) {
-        error.update('Alguma coisa deu errado')
-        pending.update(false)
-      } else {
-        error.update('')
-        dispatch({
-          type: actionTypes.DISPATCH_SEARCH_RESULTS,
-          searchResults: res.data,
-        })
-      }
-      pending.update(true)
-    })
+    if (searchTerm === getPath.searchParam()) return
+    dispatchSearchResults(getPath.searchParam(), dispatch, initialHook)
   }, [])
 
   return (
     <>
-      {error.value === '' && pending.value ? (
-        <ul className="c-bg-white m-4">
+      {initialHook.error.value === '' && !initialHook.pending.value ? (
+        <ul className='c-bg-white m-4'>
           {searchResults.length !== 0 ? (
             mountList(searchResults, activePage).map(item => (
               <StyledLi
@@ -42,37 +31,37 @@ function SearchPage({ history, location }) {
                 onClick={() => {
                   dispatch({
                     type: actionTypes.SET_PRODUCT_ID,
-                    productID: item.id,
+                    productID: item.id
                   })
                 }}
-                className="f p-top-2 p-bottom-2"
+                className='f p-top-2 p-bottom-2'
               >
-                <Link to={`/items/${item.id}`} className="f clear-link c-black">
+                <Link to={`/items/${item.id}`} className='f clear-link c-black'>
                   <img
                     src={item.image}
-                    alt="product"
-                    width="150px"
-                    height="150px"
+                    alt='product'
+                    width='150px'
+                    height='150px'
                   />
-                  <aside className="m-top-2 m-left-4 f f-column w-60">
-                    <span className="m-bottom-2">{item.price}</span>
+                  <aside className='m-top-2 m-left-4 f f-column w-60'>
+                    <span className='m-bottom-2'>{item.price}</span>
                     <span>{item.name}</span>
                   </aside>
                 </Link>
               </StyledLi>
             ))
           ) : (
-            <h3 className="c-grey-darker p-top-2 p-bottom-2 font-weight-1">
+            <h3 className='c-grey-darker p-top-2 p-bottom-2 font-weight-1'>
               Nenhum resultado encontrado
             </h3>
           )}
         </ul>
       ) : (
-        <h2 className="c-red p-top-2 p-bottom-2 font-weight-1 c-bg-white m-4 p-4">
-          {error.value}
+        <h2 className='c-red p-top-2 p-bottom-2 font-weight-1 c-bg-white m-4 p-4'>
+          {initialHook.error.value}
         </h2>
       )}
-      <ul className="f m-top-2 m-bottom-4 f-justify-center">
+      <ul className='f m-top-2 m-bottom-4 f-justify-center'>
         <MobilePagination
           page={{ number: activePage, setPageNumber: setActivePage }}
           StyledLi={StyledLi}
@@ -106,7 +95,7 @@ const StyledLi = styled.li`
   overflow: ${props => (props.item ? 'hidden' : 'none')}
   &:hover {
     background-color: ${props =>
-      props.item && !props.isMobile ? 'rgb(192, 192, 192)' : ''};
+    props.item && !props.isMobile ? 'rgb(192, 192, 192)' : ''};
   }
 `
 

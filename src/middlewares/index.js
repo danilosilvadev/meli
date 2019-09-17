@@ -1,7 +1,19 @@
-import dispatchSearchResults from './search'
-import dispatchProductDetails from './productDetails'
+import {
+  dispatchSearchResults,
+  formatSearchResults
+} from './search'
+import {
+  dispatchProductDetails,
+  formatProductDetails
+} from './productDetails'
+
+const format = {
+  productDetails: formatProductDetails,
+  searchResults: formatSearchResults
+}
 
 export {
   dispatchSearchResults,
-  dispatchProductDetails
+  dispatchProductDetails,
+  format
 }
