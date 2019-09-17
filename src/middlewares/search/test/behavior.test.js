@@ -6,6 +6,6 @@ import expectedMock from './expectedMock.json'
 
 describe('SearchResults middleware behavior tests', () => {
   it('should format search results', () => {
-    expect(format.searchResults(initialMock)).toBe(expectedMock)
+    expect(format.searchResults(initialMock)).toStrictEqual(expectedMock)
   })
 })

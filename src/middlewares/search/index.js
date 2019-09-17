@@ -13,7 +13,6 @@ export const dispatchSearchResults = (term, dispatch, {
   pending
 }) => {
   return api.search(term).then(res => {
-    console.log(JSON.stringify(res.data.results), 'inicial', JSON.stringify(formatSearchResults(res.data.results)), 'final')
     if (res.status) {
       dispatch({
         type: actionTypes.DISPATCH_SEARCH_RESULTS,
