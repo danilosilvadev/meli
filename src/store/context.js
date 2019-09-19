@@ -12,7 +12,8 @@ const reducer = (state, payload) => {
       return {
         ...state,
         searchResults: payload.searchResults,
-        searchTerm: payload.searchTerm
+        searchTerm: payload.searchTerm,
+        activeSearchPage: payload.activeSearchPage
       }
     case actionType.DISPATCH_PRODUCT_DETAILS:
       return {
@@ -30,7 +31,7 @@ const reducer = (state, payload) => {
 }
 
 const Context = React.createContext({
-  state: '',
+  state: {},
   dispatch: () => {}
 })
 

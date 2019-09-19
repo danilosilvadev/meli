@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
-import { Context, hooks } from '../../store'
+import { Context, hooks, actionTypes, initialState } from '../../store'
 import logo from '../../assets/logo.png'
 import { dispatchSearchResults } from '../../middlewares'
 import search from '../../assets/search.svg'
@@ -9,7 +9,7 @@ import { getPath } from '../../utils'
 
 function Search ({ history }) {
   const [term, setTerm] = useState('')
-  const { dispatch } = useContext(Context)
+  const store = useContext(Context)
   const initialHook = hooks()
 
   return (
@@ -27,8 +27,13 @@ function Search ({ history }) {
         onSubmit={e => {
           e.preventDefault()
           if (term === '') return
+          store.dispatch({
+            ...store.state,
+            type: actionTypes.DISPATCH_SEARCH_RESULTS,
+            activeSearchPage: initialState.activeSearchPage
+          })
           history.push(`/items?search=${term}`)
-          dispatchSearchResults(getPath.searchParam(), dispatch, initialHook)
+          dispatchSearchResults(term, store, initialHook)
         }}
         className='w-70 m-1 f f-nowrap border-none'
       >

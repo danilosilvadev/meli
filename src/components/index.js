@@ -2,7 +2,7 @@ import Search from './search'
 import {
   MobilePagination,
   DesktopPagination
-} from './Pagination'
+} from './pagination'
 
 export {
   Search,

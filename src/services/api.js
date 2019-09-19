@@ -10,7 +10,7 @@ axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 
 // axios.defaults.withCredentials = true
 
-const is200 = status => status === 200
+const is200 = status => !!(status === 200)
 
 const api = {
   search: term => axios.get(`/sites/MLA/search?q=${term}`).then(props => {
