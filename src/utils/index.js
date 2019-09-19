@@ -1,15 +1,3 @@
-import {
-  randomString,
-  getPath,
-  clearString,
-  pagination,
-  formatCurrency
-} from './js'
+import { getPath, clearString, pagination, formatCurrency } from './js'
 
-export {
-  randomString,
-  getPath,
-  clearString,
-  pagination,
-  formatCurrency
-}
+export { getPath, clearString, pagination, formatCurrency }

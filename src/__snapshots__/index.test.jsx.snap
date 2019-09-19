@@ -17,7 +17,8 @@ Array [
       onSubmit={[Function]}
     >
       <input
-        className="w-90 border-none p-left-1 styled__input-test sc-bwzfXH cTfCml"
+        className="w-90 border-none p-left-1 sc-bwzfXH cTfCml"
+        id="styled-input__test"
         onChange={[Function]}
       />
       <button

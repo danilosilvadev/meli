@@ -3,10 +3,10 @@ import { getPath } from '../../../utils'
 import { withRouter } from 'react-router-dom'
 import { Context, actionTypes } from '../../../store'
 
-function MobilePagination({ page, StyledLi, searchResults, history }) {
+function MobilePagination({ StyledLi, history }) {
   const {
     dispatch,
-    state: { activeSearchPage },
+    state: { activeSearchPage, searchResults },
   } = useContext(Context)
 
   const next = 'Siguiente'
@@ -18,12 +18,15 @@ function MobilePagination({ page, StyledLi, searchResults, history }) {
       onClick={() => {
         const searchTerm =
           getPath.length() < 3 ? getPath.searchParam() : getPath.atPosition(2)
-        if (item === next && activeSearchPage !== searchResults.length) {
+        if (
+          item === next &&
+          activeSearchPage !== Math.floor(searchResults.length / 4)
+        ) {
+          history.replace(`/search/${searchTerm}/_page_${activeSearchPage + 1}`)
           dispatch({
             type: actionTypes.SET_ACTIVE_SEARCH_PAGE,
             activeSearchPage: activeSearchPage + 1,
           })
-          history.replace(`/search/${searchTerm}/_page_${activeSearchPage + 1}`)
         }
         if (item === previous && activeSearchPage > 1) {
           dispatch({

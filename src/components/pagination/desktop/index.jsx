@@ -9,7 +9,7 @@ function DesktopPagination({ StyledLi, history }) {
     state,
     state: { activeSearchPage, searchResults },
   } = useContext(Context)
-  return pagination(activeSearchPage, Math.ceil(searchResults.length / 4)).map(
+  return pagination(activeSearchPage, Math.floor(searchResults.length / 4)).map(
     item => (
       <StyledLi
         key={item}
@@ -29,7 +29,6 @@ function DesktopPagination({ StyledLi, history }) {
         }`}
         item={item}
       >
-        {console.log(activeSearchPage, 'aqui')}
         {item}
       </StyledLi>
     )

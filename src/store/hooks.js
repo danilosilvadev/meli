@@ -1,19 +1,18 @@
-import React, {
-  useState
-} from 'react'
+/* eslint-disable */
+import React, { useState } from 'react'
 
-function useInitialRender () {
-  const [pending, setPending] = useState(true)
+function useInitialRender() {
+  const [pending, setPending] = useState(false)
   const [error, setError] = useState('')
   const initialHook = {
     pending: {
       value: pending,
-      update: setPending
+      update: setPending,
     },
     error: {
       value: error,
-      update: setError
-    }
+      update: setError,
+    },
   }
   return initialHook
 }

@@ -23,16 +23,20 @@ function Search({ history }) {
         }}
       />
       <form
-        onSubmit={e => {
+        onSubmit={async e => {
           e.preventDefault()
           if (term === '') return
+          initialHook.pending.update(true)
+          await dispatchSearchResults(term, dispatch, initialHook)
           dispatch({
             type: actionTypes.SET_ACTIVE_SEARCH_PAGE,
             activeSearchPage: initialState.activeSearchPage,
           })
+          dispatch({
+            type: actionTypes.DISPATCH_PRODUCT_DETAILS,
+            productDetails: initialState.productDetails,
+          })
           history.push(`/items?search=${term}`)
-          initialHook.pending.update(true)
-          dispatchSearchResults(term, dispatch, initialHook)
         }}
         className="w-70 m-1 f f-nowrap border-none"
       >
@@ -40,7 +44,8 @@ function Search({ history }) {
           onChange={e => {
             setTerm(e.target.value)
           }}
-          className="w-90 border-none p-left-1 styled__input-test"
+          className="w-90 border-none p-left-1"
+          id="styled-input__test"
         />
         <button
           type="submit"

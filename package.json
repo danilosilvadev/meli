@@ -22,8 +22,18 @@
     "eject": "react-scripts eject",
     "format": "prettier-standard 'src/**/*.js' --ignore-pattern \"**/*.test.js\" --ignore-pattern \"**/*.test.jsx\""
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/services/api.js",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/"
+    ]
+  },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
