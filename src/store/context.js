@@ -8,25 +8,24 @@ const reducer = (state, payload) => {
         ...state,
         productID: payload.productID
       }
-    case actionType.DISPATCH_SEARCH_RESULTS:
-      return {
-        ...state,
-        searchResults: payload.searchResults,
-        searchTerm: payload.searchTerm,
-        activeSearchPage: payload.activeSearchPage
-      }
-    case actionType.DISPATCH_PRODUCT_DETAILS:
-      return {
-        ...state,
-        productDetails: payload.productDetails
-      }
-    case actionType.SET_ACTIVE_SEARCH_PAGE:
-      return {
-        ...state,
-        activeSearchPage: payload.activeSearchPage
-      }
-    default:
-      return state
+      case actionType.DISPATCH_SEARCH_RESULTS:
+        return {
+          ...state,
+          searchResults: payload.searchResults,
+            searchTerm: payload.searchTerm,
+        }
+        case actionType.DISPATCH_PRODUCT_DETAILS:
+          return {
+            ...state,
+            productDetails: payload.productDetails
+          }
+          case actionType.SET_ACTIVE_SEARCH_PAGE:
+            return {
+              ...state,
+              activeSearchPage: payload.activeSearchPage
+            }
+            default:
+              return state
   }
 }
 

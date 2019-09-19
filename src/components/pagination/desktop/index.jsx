@@ -3,11 +3,11 @@ import { pagination, getPath } from '../../../utils'
 import { withRouter } from 'react-router-dom'
 import { Context, actionTypes } from '../../../store'
 
-function DesktopPagination ({ StyledLi, history }) {
+function DesktopPagination({ StyledLi, history }) {
   const {
     dispatch,
     state,
-    state: { activeSearchPage, searchResults }
+    state: { activeSearchPage, searchResults },
   } = useContext(Context)
   return pagination(activeSearchPage, Math.ceil(searchResults.length / 4)).map(
     item => (
@@ -17,8 +17,8 @@ function DesktopPagination ({ StyledLi, history }) {
           if (item === '...') return
           dispatch({
             ...state,
-            type: actionTypes.DISPATCH_SEARCH_RESULTS,
-            activeSearchPage: item
+            type: actionTypes.SET_ACTIVE_SEARCH_PAGE,
+            activeSearchPage: item,
           })
           const searchTerm =
             getPath.length() < 3 ? getPath.searchParam() : getPath.atPosition(2)

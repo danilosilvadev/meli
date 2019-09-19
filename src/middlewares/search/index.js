@@ -8,14 +8,13 @@ import {
   actionTypes
 } from '../../store'
 
-export const dispatchSearchResults = (term, store, {
+export const dispatchSearchResults = (term, dispatch, {
   error,
   pending
 }) => {
   return api.search(term).then(res => {
     if (res.status) {
-      store.dispatch({
-        ...store.state,
+      dispatch({
         type: actionTypes.DISPATCH_SEARCH_RESULTS,
         searchResults: formatSearchResults(res.data.results),
         searchTerm: res.data.query
