@@ -1,5 +1,4 @@
-First `npm install` to install the packages.
-First `npm install` to install the packages.
+First `npm install` to install the packages and `npm start` to run.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -29,6 +28,10 @@ This project uses contextAPI and useReducer to manage global state.
 
 All pages are responsive.
 Most of the style use scss helpers, and to deep customization styled components were used.
+
+## Tests
+
+It has unit tests, all of them are working here but if you find some problem with `dots and commas` at mocks of prices is that because INTL object interprete your browser in a different way than mine. I will solve this soon.
 
 ## And
 
